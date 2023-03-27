@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.div-main-card {
+    display: flex;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+}
+
+.card-img-top {
+    width: 100%;
+    cursor: pointer;
+    height: 300px;
+}
+.card-title:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card {
+    padding: 5px;
+    border: none;
+}
+.Category{
+    margin: 15px 0px 0px 0px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p{
+    margin-bottom: 0px;
+}
+.card>div {
+    border-radius: 10px;
+    border: 2px solid #ded7d3;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.img-profile {
+    display: flex;
+    align-items: center;
+}
+
+.name-date {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+.name-date>p {
+    margin-bottom: 0px;
+}

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap');
+
+a {
+    text-decoration: none;
+}
+*{
+    font-family: 'Josefin Sans', sans-serif;
+}
+/* .navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* right: ;
+} */
+.nav-item>.nav-link,
+.navbar-brand {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+
+li>a{
+    color: black;
+    font-weight: bolder !important;
+}
+.dropdown-item {
+    color: black;
+    font-weight: bolder;
+}
+.mask>.d-flex>.text-white{
+    text-transform: uppercase;
+}
