@@ -1,32 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap');
+.navbar,
+.bgblue {
+    background-color: #5468ff;
+    padding: 15px !important;
+}
 
-a {
-    text-decoration: none;
-}
-*{
-    font-family: 'Josefin Sans', sans-serif;
-}
-/* .navbar{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /* right: ;
-} */
-.nav-item>.nav-link,
 .navbar-brand {
-    margin-right: 25px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.text-uppercase {
+    color: white;
+}
+
+.text-reset {
+    text-decoration: none;
+    transition: .4s;
+}
+
+.text-reset:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: white !important;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 7px 13px !important;
+    text-transform: uppercase;
+    border-radius: 3px;
     cursor: pointer;
 }
 
+.active,
+.nav-link:hover {
+    background-color: #1b9bff;
+    transition: .5s;
+}
 
-li>a{
-    color: black;
-    font-weight: bolder !important;
+
+.active {
+    color: black !important;
+    font-weight: 900;
 }
-.dropdown-item {
-    color: black;
-    font-weight: bolder;
-}
-.mask>.d-flex>.text-white{
-    text-transform: uppercase;
+
+.nav-link {
+    color: white;
 }

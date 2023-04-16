@@ -21,7 +21,6 @@ const db = getFirestore(app);
 
 const Blog = () => {
     const [Blog, setBlog] = useState("")
-    const [Users, setUsers] = useState("")
     const [Loader, setLoader] = useState(true)
     useEffect(() => {
         const q = query(collection(db, "Blogs"), where("stats", "==", "Approved"));
@@ -29,13 +28,13 @@ const Blog = () => {
         const a = onSnapshot(q, (querySnapshot) => {
             const Blogs = [];
             querySnapshot.forEach((doc) => {
-                // console.log(doc.data());
                 Blogs.push(doc.data());
                 setBlog(Blogs)
                 setLoader(false)
             });
         })
     }, [])
+
 
 
     return (
@@ -45,30 +44,15 @@ const Blog = () => {
                 <h5 className='font-bold'> All Posts : </h5>
             </div>
             <div className='div-main-card'>
-
                 {
                     Loader ?
-                        <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" alt="" />
+                        <div className='loaderdiv d-flex align-items-center justify-content-center h-100 w-100' >
+                            <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" />
+                        </div>
                         :
                         Blog.map((v, i) => {
-
-                            const userq = query(collection(db, "users"));
-                            const unsubscribe = onSnapshot(userq, (querySnapshot) => {
-                                const users = [];
-                                querySnapshot.forEach((doc) => {
-                                    users.push(doc.data());
-                                    users.map((v, i) => {
-                                        setUsers(users)
-                                    })
-                                    // users.map((val, i) => {
-                                    // setUsers(val)
-                                    // })
-                                });
-                            });
-                            // console.log(Users)
                             return (
-
-                                <Card profile={Users.profile} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
+                                <Card id={v.id} uid={v.uid} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
                             )
                         })
                 }

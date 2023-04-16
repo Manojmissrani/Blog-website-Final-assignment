@@ -19,7 +19,6 @@ const db = getFirestore(app);
 
 const WordPress = () => {
     const [Blog, setBlog] = useState("")
-    const [Users, setUsers] = useState("")
     const [Loader, setLoader] = useState(true)
 
     useEffect(() => {
@@ -28,26 +27,22 @@ const WordPress = () => {
         const a = onSnapshot(q, (querySnapshot) => {
             const Blogs = [];
             querySnapshot.forEach((doc) => {
-                // console.log(doc.data());
                 Blogs.push(doc.data());
-                // console.log(Blogs)
-                // if (Blogs.Category === "Web Development") {
                 setBlog(Blogs)
                 setLoader(false)
-
-                // }
             });
         })
     }, [])
 
     return (
         <div>
-            <Navbar />
+            <Navbar word="active" page="WordPress" />
+
             <header>
-                <div class="text-center bg-image-web" >
-                    <div class="mask" >
-                        <div class="d-flex justify-content-center align-items-center h-100">
-                            <h1 class="text-white">WordPress</h1>
+                <div className="text-center bg-image-web" >
+                    <div className="mask" >
+                        <div className="d-flex justify-content-center align-items-center h-100">
+                            <h1 className="text-white">WordPress</h1>
                         </div>
                     </div>
                 </div>
@@ -55,22 +50,13 @@ const WordPress = () => {
             <div className='div-main-card'>
                 {
                     Loader ?
-                        <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" alt="" />
-                        :
+                        <div className='loaderdiv d-flex align-items-center justify-content-center h-100 w-100' >
+                            <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" />
+                        </div> :
                         Blog.map((v, i) => {
-                            const userq = query(collection(db, "users"));
-                            const unsubscribe = onSnapshot(userq, (querySnapshot) => {
-                                const users = [];
-                                querySnapshot.forEach((doc) => {
-                                    users.push(doc.data());
-                                    users.map((v, i) => {
-                                        setUsers(users)
-                                    })
-                                });
-                            });
                             if (v.Category === "WordPress") {
                                 return (
-                                    <Card profile={Users.profile} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
+                                    <Card id={v.id} uid={v.uid} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
                                 )
                             }
                         })}
@@ -81,51 +67,3 @@ const WordPress = () => {
 }
 
 export default WordPress
-
-// const WebDevelopment = () => {
-
-
-//     return (
-//         <div>
-//             <Navbar />
-//             <header>
-//                 <div class="text-center bg-image-web" >
-//                     <div class="mask" >
-//                         <div class="d-flex justify-content-center align-items-center h-100">
-//                             <h1 class="text-white">Web Development</h1>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </header>
-//             <div className='div-main-card'>
-//                 {
-//                     Loader ?
-//                         <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" alt="" />
-//                         :
-//                         Blog.map((v, i) => {
-//                             const userq = query(collection(db, "users"));
-//                             const unsubscribe = onSnapshot(userq, (querySnapshot) => {
-//                                 const users = [];
-//                                 querySnapshot.forEach((doc) => {
-//                                     users.push(doc.data());
-//                                     users.map((v, i) => {
-//                                         setUsers(users)
-//                                     })
-//                                 });
-//                             });
-//                             if (v.Category === "Web Development") {
-//                                 return (
-//                                     <Card profile={Users.profile} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
-//                                 )
-//                             }
-
-//                         })
-//                 }
-//             </div>
-//             <Footer />
-
-//         </div>
-//     )
-// }
-
-// export default WebDevelopment

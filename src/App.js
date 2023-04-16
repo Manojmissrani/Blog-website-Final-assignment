@@ -3,8 +3,11 @@ import './App.css';
 import RouterNavigation from './config/router';
 function App() {
   return (
-    <RouterNavigation />
-  );
+    <div class="scrollbar" id="style-11">
+    <div class="force-overflow">
+      <RouterNavigation />
+    </div>
+  </div>  );
 }
 
 export default App;

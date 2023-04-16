@@ -48,6 +48,18 @@
 }
 
 
+
+.loaderdiv{
+    height: 100vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+
+}
+.loaderdiv>img{
+    height: 200px;
+}
+
 .mask {
     height: 500px;
     display: flex;

@@ -27,26 +27,21 @@ const WebDevelopment = () => {
         const a = onSnapshot(q, (querySnapshot) => {
             const Blogs = [];
             querySnapshot.forEach((doc) => {
-                // console.log(doc.data());
                 Blogs.push(doc.data());
-                // console.log(Blogs)
-                // if (Blogs.Category === "Web Development") {
                 setBlog(Blogs)
                 setLoader(false)
-
-                // }
             });
         })
     }, [])
 
     return (
         <div>
-            <Navbar />
+            <Navbar web="active" page="Web Development" />
             <header>
-                <div class="text-center bg-image-web" >
-                    <div class="mask" >
-                        <div class="d-flex justify-content-center align-items-center h-100">
-                            <h1 class="text-white">Web Development</h1>
+                <div className="text-center bg-image-web" >
+                    <div className="mask" >
+                        <div className="d-flex justify-content-center align-items-center h-100">
+                            <h1 className="text-white">Web Development</h1>
                         </div>
                     </div>
                 </div>
@@ -54,22 +49,13 @@ const WebDevelopment = () => {
             <div className='div-main-card'>
                 {
                     Loader ?
-                        <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" alt="" />
-                        :
+                        <div className='loaderdiv d-flex align-items-center justify-content-center h-100 w-100' >
+                            <img src="https://cdn.dribbble.com/users/1787505/screenshots/7300251/media/a351d9e0236c03a539181b95faced9e0.gif" />
+                        </div> :
                         Blog.map((v, i) => {
-                            const userq = query(collection(db, "users"));
-                            const unsubscribe = onSnapshot(userq, (querySnapshot) => {
-                                const users = [];
-                                querySnapshot.forEach((doc) => {
-                                    users.push(doc.data());
-                                    users.map((v, i) => {
-                                        setUsers(users)
-                                    })
-                                });
-                            });
                             if (v.Category === "Web Development") {
                                 return (
-                                    <Card profile={Users.profile} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
+                                    <Card uid={v.uid} id={v.id} key={i} Category={v.Category} img={v.url} date={v.date} des={v.Description} title={v.Title} />
                                 )
                             }
 

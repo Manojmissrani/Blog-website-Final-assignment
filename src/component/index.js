@@ -1,4 +1,5 @@
 import Navbar from "./navbar";
 import Footer from "./footer";
 import Card from './card'
-export {Navbar,Footer,Card}
+import Share from "./share";
+export {Navbar,Footer,Card,Share}

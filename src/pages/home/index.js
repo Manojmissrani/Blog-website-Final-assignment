@@ -7,18 +7,16 @@ import "./index.css"
 const Home = () => {
     return (
         <div>
-            <Navbar />
+            <Navbar  home="active" page="Select Category"/>
             <header>
-                <div class="text-center bg-image" >
-                    <div class="mask" >
-                        <div class="d-flex justify-content-center align-items-center h-100">
-                            <h1 class="text-white">Home</h1>
+                <div className="text-center bg-image" >
+                    <div className="mask w-100" >
+                        <div className="d-flex justify-content-center align-items-center h-100 w-100">
+                            <h1 className="text-white">Home</h1>
                         </div>
                     </div>
                 </div>
             </header>
-
-            {/* <Aboutus /> */}
             <Blog />
             <Footer />
         </div>
